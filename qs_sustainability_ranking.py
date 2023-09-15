@@ -87,8 +87,8 @@ def sustainable_institute_section():
     with sustainable_institute_right_column:
         st.write("Sustainable Institute")
 
-        st.bar_chart({"a": [100-sustainable_institute_score],
-                        "b": [sustainable_institute_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
+        st.bar_chart({"a: yet to achieve": [100-sustainable_institute_score],
+                        "b: score achieved": [sustainable_institute_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
     
 
 
@@ -134,8 +134,8 @@ def sustainable_education_section():
     with sustainable_education_right_column:
         st.write("Sustainable Education")
 
-        st.bar_chart({"a": [100-sustainable_education_score],
-                        "b": [sustainable_education_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
+        st.bar_chart({"a: yet to achieve": [100-sustainable_education_score],
+                        "b: score achieved": [sustainable_education_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
         
 
 def sustainable_research_section(): 
@@ -173,8 +173,8 @@ def sustainable_research_section():
     with sustainable_research_right_column:
         st.write("Sustainable Research")
 
-        st.bar_chart({"a": [100-sustainable_research_score],
-                        "b": [sustainable_research_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
+        st.bar_chart({"a: yet to achieve": [100-sustainable_research_score],
+                        "b: score achieved": [sustainable_research_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
         
 
 def equality_section():
@@ -260,8 +260,8 @@ def equality_section():
     with equality_right_column:
         st.write("Equality")
 
-        st.bar_chart({"a": [100-equality_score],
-                        "b": [equality_score]}, use_container_width=False, width=250, height=500, color=["#abdd87", "#a075c0"])
+        st.bar_chart({"a: yet to achieve": [100-equality_score],
+                        "b: score achieved": [equality_score]}, use_container_width=False, width=250, height=500, color=["#abdd87", "#a075c0"])
         
 
         
@@ -299,8 +299,8 @@ def knowledge_exchange_section():
     with knowledge_exchange_right_column:
         st.write("Knowledge Exchange")
 
-        st.bar_chart({"a": [100-knowledge_exchange_score],
-                        "b": [knowledge_exchange_score]}, use_container_width=False, width=250, height=500, color=["#abdd87", "#a075c0"])
+        st.bar_chart({"a: yet to achieve": [100-knowledge_exchange_score],
+                        "b: score achieved": [knowledge_exchange_score]}, use_container_width=False, width=250, height=500, color=["#abdd87", "#a075c0"])
 
 
 
@@ -348,8 +348,8 @@ def educational_impact_section():
     with educational_impact_right_column:
         st.write("Educational Impact")
 
-        st.bar_chart({"a": [100-educational_impact_score],
-                        "b": [educational_impact_score]}, use_container_width=False, width=250, height=500, color=["#abdd87", "#a075c0"])
+        st.bar_chart({"a: yet to achieve": [100-educational_impact_score],
+                        "b: score achieved": [educational_impact_score]}, use_container_width=False, width=250, height=500, color=["#abdd87", "#a075c0"])
         
 
 def employability_and_oppurtunity_section():
@@ -391,8 +391,8 @@ def employability_and_oppurtunity_section():
     with employability_and_oppurtunity_right_column:
         st.write("Employability and Oppurtunity")
 
-        st.bar_chart({"a": [100-employability_and_oppurtunity_score],
-                        "b": [employability_and_oppurtunity_score]}, use_container_width=False, width=250, height=500, color=["#abdd87", "#a075c0"])
+        st.bar_chart({"a: yet to achieve": [100-employability_and_oppurtunity_score],
+                        "b: score achieved": [employability_and_oppurtunity_score]}, use_container_width=False, width=250, height=500, color=["#abdd87", "#a075c0"])
         
         
 
@@ -436,8 +436,8 @@ def quality_of_life_section():
     with quality_of_life_right_column:
         st.write("Quality of Life")
 
-        st.bar_chart({"a": [100-quality_of_life_score],
-                        "b": [quality_of_life_score]}, use_container_width=False, width=250, height=500, color=["#abdd87", "#a075c0"])
+        st.bar_chart({"a: yet to achieve": [100-quality_of_life_score],
+                        "b: score achieved": [quality_of_life_score]}, use_container_width=False, width=250, height=500, color=["#abdd87", "#a075c0"])
         
         
 
@@ -446,23 +446,43 @@ def quality_of_life_section():
 
 
 def main():
-    left_column, right_column = st.columns(2)
+
+    st.title("QS Sustainability Rankings")
+    st.write("The new QS World University Rankings: Sustainability 2023 assess 700 universities around the world to determine their environmental and social impact.")
+    st.write("Institutional impact is evaluated across eight categories (or indicators) to effectively capture university performance when it comes to making positive change for people and planet.")
+    st.write("The rankings can provide a helpful starting point to understanding how environmentally and socially conscious a university is. ")
+    st.write("Indicators are split into environmental sustainability measures – including sustainable institutions, sustainable education and sustainable research – and social impact measures – including equality, knowledge exchange, educational impact, employability and opportunities, and quality of life.")
+    st.divider()
+    left_column, middle_column, right_column = st.columns(3)
 
     with left_column:
-        st.title("QS Sustainability Rankings")
-        st.write("The new QS World University Rankings: Sustainability 2023 assess 700 universities around the world to determine their environmental and social impact.")
-        st.write("Institutional impact is evaluated across eight categories (or indicators) to effectively capture university performance when it comes to making positive change for people and planet.")
-        st.write("The rankings can provide a helpful starting point to understanding how environmentally and socially conscious a university is. ")
-        st.write("Indicators are split into environmental sustainability measures – including sustainable institutions, sustainable education and sustainable research – and social impact measures – including equality, knowledge exchange, educational impact, employability and opportunities, and quality of life.")
         
-        
-        score_placeholder = st.empty()
-        ranking_placeholder = st.empty()
+        left_1, left_2 = st.columns(2)
+        with left_1:
+            score_placeholder = st.empty()
+            st.write("(Higher is better)")
+            overall_score_bar_chart_placeholder = st.empty()
+        with left_2:
+            ranking_placeholder = st.empty()
+            st.write("(Lower is better)")
+            overall_rank_bar_chart_placeholder = st.empty()
 
+
+    with middle_column:
+        middle_column_placeholder = st.empty()
 
     with right_column:
-        st.write("QS Sustainability Rankings")
-        bar_chart_placeholder = st.empty()
+        right_1, right_2 = st.columns(2)
+        # st.write("QS Sustainability Rankings")
+        with right_1:
+            st.subheader("Environmental Impact")
+            overall_environmental_impact_bar_chart_placeholder = st.empty()
+            # st.write("Environmental Impact")
+        with right_2:
+            st.subheader("Social Impact")
+            overall_social_impact_bar_chart_placeholder = st.empty()
+            # st.write("Social Impact")
+        # bar_chart_placeholder = st.empty()
 
     # environmental_impact_left_column, environmental_impact_right_column = st.columns(2)
 
@@ -504,23 +524,31 @@ def main():
     social_impact_score = (equality_score * 0.2 + knowledge_exchange_score * 0.2 + educational_impact_score * 0.2 + employability_and_oppurtunity_score * 0.2 + quality_of_life_score * 0.2)
 
 
-    environmental_impact_bar_chart_placeholder.bar_chart({"a": [100-sustainable_education_score, 100-sustainable_institute_score, 100-sustainable_research_score],
-                        "b": [sustainable_education_score, sustainable_institute_score, sustainable_research_score]}, height=500, color=["#48ffff", "#ff7648"], use_container_width=False, width=800)
+    environmental_impact_bar_chart_placeholder.bar_chart({"a: yet to achieve": [100-sustainable_education_score, 100-sustainable_institute_score, 100-sustainable_research_score],
+                        "b: score achieve": [sustainable_education_score, sustainable_institute_score, sustainable_research_score]}, height=500, color=["#48ffff", "#ff7648"], use_container_width=False, width=800)
 
-    social_impact_bar_chart_placeholder.bar_chart({"a": [100-equality_score, 100-knowledge_exchange_score, 100-educational_impact_score, 100-employability_and_oppurtunity_score, 100-quality_of_life_score],
-                        "b": [equality_score, knowledge_exchange_score, educational_impact_score, employability_and_oppurtunity_score, quality_of_life_score]}, height=500, color=["#abdd87", "#a075c0"], use_container_width=False, width=1000)
+    social_impact_bar_chart_placeholder.bar_chart({"a: yet to achieve": [100-equality_score, 100-knowledge_exchange_score, 100-educational_impact_score, 100-employability_and_oppurtunity_score, 100-quality_of_life_score],
+                        "b: score achieve": [equality_score, knowledge_exchange_score, educational_impact_score, employability_and_oppurtunity_score, quality_of_life_score]}, height=500, color=["#abdd87", "#a075c0"], use_container_width=False, width=1000)
 
 
-    bar_chart_placeholder.bar_chart({"a": [100-environmental_sustainability_score, 100-social_impact_score],
-                "b": [environmental_sustainability_score, social_impact_score]}, height=500)
+    overall_environmental_impact_bar_chart_placeholder.bar_chart({"a: yet to achieve": [100-environmental_sustainability_score],
+                "b: score achieved": [environmental_sustainability_score]}, height=500, color=["#abdd87", "#a075c0"], use_container_width=False, width=250)
+    overall_social_impact_bar_chart_placeholder.bar_chart({"a: yet to achieve": [100-social_impact_score],
+                "b: score achieved": [social_impact_score]}, height=500, color=["#abdd87", "#a075c0"], use_container_width=False, width=250)
 
     final_score = (environmental_sustainability_score * ((3*100)/8)/100) + (social_impact_score * ((5*100)/8)/100)
     score_placeholder.subheader(f"QS Sustainability Rankings Score: {final_score:.2f}")
+    overall_score_bar_chart_placeholder.bar_chart({"a: yet to achieve": [100-final_score],
+                      "b: achieved": [final_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
+
 
     pred = np.array([[final_score]])
     rank = random_forest_reg.predict(pred)
 
     ranking_placeholder.subheader(f"Sustainability Ranking Outcome is {int(rank)}")
+    overall_rank_bar_chart_placeholder.bar_chart({"a: yet to achieve": [692 - int(rank)],
+                      "b: achieved": [int(rank)]}, use_container_width=False, width=250, height=500, color=["#abdd87", "#a075c0"])
+
 
 
 

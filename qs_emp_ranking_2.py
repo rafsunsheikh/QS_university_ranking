@@ -81,8 +81,8 @@ def employee_reputation_section():
     with employee_reputation_right_column:
         st.write("Employer Reputation")
 
-        st.bar_chart({"a": [100-employee_reputation_score],
-                        "b": [employee_reputation_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
+        st.bar_chart({"a: yet to achieve": [100-employee_reputation_score],
+                        "b: score achieved": [employee_reputation_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
     
 
 
@@ -137,8 +137,8 @@ def alumni_outcomes_section():
     with alumni_outcome_right_column:
         st.write("Alumni Outcomes")
 
-        st.bar_chart({"a": [100-alumni_outcomes_score],
-                        "b": [alumni_outcomes_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
+        st.bar_chart({"a: yet to achieve": [100-alumni_outcomes_score],
+                        "b: score achieved": [alumni_outcomes_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
 
 def partnership_employers_faculty_section():
     global partnership_employers_faculty_score
@@ -180,8 +180,8 @@ def partnership_employers_faculty_section():
     with partnerships_employers_faculty_right_column:
         st.write("Partnerships with Employers per Faculty")
 
-        st.bar_chart({"a": [100-partnership_employers_faculty_score],
-                        "b": [partnership_employers_faculty_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
+        st.bar_chart({"a: yet to achieve": [100-partnership_employers_faculty_score],
+                        "b: score achieved": [partnership_employers_faculty_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
 
 
 def employer_student_connection_section():
@@ -230,8 +230,8 @@ def employer_student_connection_section():
     with employer_student_connections_right_column:
         st.write("Employer/Student Connections")
 
-        st.bar_chart({"a": [100-employer_student_connection_score],
-                        "b": [employer_student_connection_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
+        st.bar_chart({"a: yet to achieve": [100-employer_student_connection_score],
+                        "b: score achieved": [employer_student_connection_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
 
 
 def graduate_employment_rate_section():
@@ -290,31 +290,55 @@ def graduate_employment_rate_section():
     with graduate_employment_rate_right_column:
         st.write("Graduate Employment Rate")   
 
-        st.bar_chart({"a": [100-graduate_employment_rate_score],
-                    "b": [graduate_employment_rate_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])    
+        st.bar_chart({"a: yet to achieve": [100-graduate_employment_rate_score],
+                    "b: score achieved": [graduate_employment_rate_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])    
 
 
 
 
 def main():
-    left_column, right_column = st.columns(2)
+    st.title("QS Employability Rankings")
+    st.divider( )
 
-    with left_column:
-        st.title("QS Employability Rankings")
-        st.write("The QS Graduate Employability Rankings 2024 considers the following factors:")
-        st.write("1. Employer Reputation (30%)")
-        st.write("2. Alumni Outcomes (25%)")
-        st.write("3. Partnerships with Employers per Faculty (25%)")
-        st.write("4. Employer-Student Connections (10%)")
-        st.write("5. Graduate Employment Rate (10%)")
+    col_1, col_2, middle_col, col_3, col_4, col_5, col_6, col_7 = st.columns(8)
 
+    with col_1:
         score_placeholder = st.empty()
+        st.write("(Higher is better)")
+        overall_score_bar_chart_placeholder = st.empty()
+        
+
+    with col_2:
         ranking_placeholder = st.empty()
+        st.write("(Lower is better)")
+        overall_rank_bar_chart_placeholder = st.empty()
 
-
-    with right_column:
-        st.write("QS Employability Rankings")
+    with middle_col:
         bar_chart_placeholder = st.empty()
+        
+
+    with col_3:
+        
+        right_1_bar_chart_placeholder = st.empty()
+        st.write("Employer Reputation (30%)")
+    with col_4:
+        
+        right_2_bar_chart_placeholder = st.empty()
+        st.write("Alumni Outcomes (25%)")
+    with col_5:
+        
+        right_3_bar_chart_placeholder = st.empty()
+        st.write("Partnerships with Employers per Faculty (25%)")
+    with col_6:
+        
+        right_4_bar_chart_placeholder = st.empty()
+        st.write("Employer-Student Connections (10%)")
+    with col_7:
+        
+        right_5_bar_chart_placeholder = st.empty()
+        st.write("Graduate Employment Rate (10%)")
+
+
 
     employee_reputation_section()
     alumni_outcomes_section()
@@ -322,17 +346,31 @@ def main():
     employer_student_connection_section()
     graduate_employment_rate_section()
 
-    bar_chart_placeholder.bar_chart({"a": [100-employee_reputation_score, 100-alumni_outcomes_score, 100-partnership_employers_faculty_score, 100-employer_student_connection_score, 100-graduate_employment_rate_score],
-                "b": [employee_reputation_score, alumni_outcomes_score, partnership_employers_faculty_score, employer_student_connection_score, graduate_employment_rate_score]}, height=500)
-
+    
+    right_1_bar_chart_placeholder.bar_chart({"a: yet to achieve": [100-employee_reputation_score],
+                        "b: score achieved": [employee_reputation_score]}, use_container_width=True, height=500, color=["#a7d967", "#9967d9"])
+    right_2_bar_chart_placeholder.bar_chart({"a: yet to achieve": [100-alumni_outcomes_score],
+                        "b: score achieved": [alumni_outcomes_score]}, use_container_width=True, height=500, color=["#a7d967", "#9967d9"])
+    right_3_bar_chart_placeholder.bar_chart({"a: yet to achieve": [100-partnership_employers_faculty_score],
+                        "b: score achieved": [partnership_employers_faculty_score]}, use_container_width=True, height=500, color=["#a7d967", "#9967d9"])
+    right_4_bar_chart_placeholder.bar_chart({"a: yet to achieve": [100-employer_student_connection_score],
+                        "b: score achieved": [employer_student_connection_score]}, use_container_width=True, height=500, color=["#a7d967", "#9967d9"])
+    right_5_bar_chart_placeholder.bar_chart({"a: yet to achieve": [100-graduate_employment_rate_score],
+                        "b: score achieved": [graduate_employment_rate_score]}, use_container_width=True, height=500, color=["#a7d967", "#9967d9"])
+    
     final_score = employee_reputation_score*0.30 + alumni_outcomes_score*0.25 + partnership_employers_faculty_score*0.25 + employer_student_connection_score*0.10 + graduate_employment_rate_score*0.10
     score_placeholder.subheader(f"QS Employability Rankings Score: {final_score:.2f}")
+
+    overall_score_bar_chart_placeholder.bar_chart({"a: yet to achieve": [100-final_score],
+                      "b: achieved": [final_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
+
 
     pred = np.array([[final_score]])
     rank = random_forest_reg.predict(pred)
 
-    ranking_placeholder.subheader(f"Employability Ranking Outcome is {int(rank)}")
-
+    ranking_placeholder.subheader(f"Employability Ranking Outcome: {int(rank)}")
+    overall_rank_bar_chart_placeholder.bar_chart({"a: yet to achieve": [597 - int(rank)],
+                      "b: achieved": [int(rank)]}, use_container_width=False, width=250, height=500, color=["#abdd87", "#a075c0"])
 
 
     

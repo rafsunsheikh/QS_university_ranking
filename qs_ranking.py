@@ -254,12 +254,12 @@ def main():
   overall_score_placeholder.subheader(f"Score: {total_overall_score:.2f}")
   overall_rank_placeholder.subheader(f"Ranking: {int(rank)}")
 
-  overall_score_bar_chart_placeholder.bar_chart({"a": [100-total_overall_score],
-                      "b": [total_overall_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
+  overall_score_bar_chart_placeholder.bar_chart({"a: yet to achieve": [100-total_overall_score],
+                      "b: achieved": [total_overall_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
   
   
-  overall_rank_bar_chart_placeholder.bar_chart({"a": [548 - int(rank)],
-                      "b": [int(rank)]}, use_container_width=False, width=250, height=500, color=["#abdd87", "#a075c0"])
+  overall_rank_bar_chart_placeholder.bar_chart({"a: yet to achieve": [548 - int(rank)],
+                      "b: achieved": [int(rank)]}, use_container_width=False, width=250, height=500, color=["#abdd87", "#a075c0"])
 
 
 
