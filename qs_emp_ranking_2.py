@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
 
-url  = "/home/mdrafsunsheikh/Desktop/QS_university_ranking_app/Datasets/2024_QS_World_University_Rankings.csv"
+
+url  = "https://raw.githubusercontent.com/rafsunsheikh/qs_ranking/main/2024_QS_World_University_Rankings.csv"
 df = pd.read_csv(url)
 
 dataset = df[["Unnamed: 12", "Unnamed: 13"]]
@@ -200,8 +201,7 @@ def employer_student_connection_section():
                 "We found that employers are offering motivated students the chance to network and gain valuable insights.",
                 "We have options that employers provide students with opportunities to engage in career-launching internships and research experiences.",
                 "The university collaborates with employers to organize career fairs, creating opportunities for students to access both internships and career prospects.",
-                "At the university campus, employers collaborate with the institution to organize company presentations.",
-                "At the university campus, employers collaborate with the institution to organize various self-promoting activities."
+                "At the university campus, employers collaborate with the institution to organize company presentations and self promoting activities."
                 ]
         # Create multiple-choice tickboxes in the main content area
         # employer_student_connection_score = 0
@@ -211,17 +211,15 @@ def employer_student_connection_section():
             selected = st.checkbox(f"{option}")
             if selected:
                 if "We have facilitated options so that employers have maintained an active presence on the university's campus throughout the past twelve months." in option:
-                    employer_student_connection_score += (100/6)
+                    employer_student_connection_score += (100/5)
                 elif "We found that employers are offering motivated students the chance to network and gain valuable insights." in option:
-                    employer_student_connection_score += (100/6)
+                    employer_student_connection_score += (100/5)
                 elif "We have options that employers provide students with opportunities to engage in career-launching internships and research experiences." in option:
-                    employer_student_connection_score += (100/6)
+                    employer_student_connection_score += (100/5)
                 elif "The university collaborates with employers to organize career fairs, creating opportunities for students to access both internships and career prospects." in option:
-                    employer_student_connection_score += (100/6)
-                elif "At the university campus, employers collaborate with the institution to organize company presentations." in option:
-                    employer_student_connection_score += (100/6)
-                elif "At the university campus, employers collaborate with the institution to organize various self-promoting activities." in option:
-                    employer_student_connection_score += (100/6)
+                    employer_student_connection_score += (100/5)
+                elif "At the university campus, employers collaborate with the institution to organize company presentations and self promoting activities." in option:
+                    employer_student_connection_score += (100/5)
                 
                 selected_options_content.append(option)
         # st.write("You selected:", ", ".join(selected_options_content))
@@ -300,43 +298,88 @@ def main():
     st.title("QS Employability Rankings")
     st.divider( )
 
-    col_1, col_2, middle_col, col_3, col_4, col_5, col_6, col_7 = st.columns(8)
-
-    with col_1:
-        score_placeholder = st.empty()
-        st.write("(Higher is better)")
-        overall_score_bar_chart_placeholder = st.empty()
-        
-
-    with col_2:
+    left_col, right_col = st.columns(2)
+    with left_col:
         ranking_placeholder = st.empty()
-        st.write("(Lower is better)")
-        overall_rank_bar_chart_placeholder = st.empty()
-
-    with middle_col:
-        bar_chart_placeholder = st.empty()
+        score_placeholder = st.empty()
         
 
-    with col_3:
+    with right_col:
+        right_1, right_2 = st.columns(2)
+        with right_1:
+            st.write("(Lower is better)")
+            overall_rank_bar_chart_placeholder = st.empty()
+            st.write("QS Employability Ranking")
+
+        with right_2:
+            st.write("(Higher is better)")
+            overall_score_bar_chart_placeholder = st.empty()
+            st.write("QS Employability Score")
+    st.divider()
+    
+    st.subheader("QS Employability Rankings Factors")
+    col_1, col_2, col_3, col_4, col_5, = st.columns(5)
+    with col_1:
         
         right_1_bar_chart_placeholder = st.empty()
         st.write("Employer Reputation (30%)")
-    with col_4:
+    with col_2:
         
         right_2_bar_chart_placeholder = st.empty()
         st.write("Alumni Outcomes (25%)")
-    with col_5:
+    with col_3:
         
         right_3_bar_chart_placeholder = st.empty()
         st.write("Partnerships with Employers per Faculty (25%)")
-    with col_6:
+    with col_4:
         
         right_4_bar_chart_placeholder = st.empty()
         st.write("Employer-Student Connections (10%)")
-    with col_7:
+    with col_5:
         
         right_5_bar_chart_placeholder = st.empty()
         st.write("Graduate Employment Rate (10%)")
+
+    st.divider()
+
+
+    # col_1, col_2, middle_col, col_3, col_4, col_5, col_6, col_7 = st.columns(8)
+
+    # with col_1:
+    #     score_placeholder = st.empty()
+    #     st.write("(Higher is better)")
+    #     overall_score_bar_chart_placeholder = st.empty()
+        
+
+    # with col_2:
+    #     ranking_placeholder = st.empty()
+    #     st.write("(Lower is better)")
+    #     overall_rank_bar_chart_placeholder = st.empty()
+
+    # with middle_col:
+    #     bar_chart_placeholder = st.empty()
+        
+
+    # with col_3:
+        
+    #     right_1_bar_chart_placeholder = st.empty()
+    #     st.write("Employer Reputation (30%)")
+    # with col_4:
+        
+    #     right_2_bar_chart_placeholder = st.empty()
+    #     st.write("Alumni Outcomes (25%)")
+    # with col_5:
+        
+    #     right_3_bar_chart_placeholder = st.empty()
+    #     st.write("Partnerships with Employers per Faculty (25%)")
+    # with col_6:
+        
+    #     right_4_bar_chart_placeholder = st.empty()
+    #     st.write("Employer-Student Connections (10%)")
+    # with col_7:
+        
+    #     right_5_bar_chart_placeholder = st.empty()
+    #     st.write("Graduate Employment Rate (10%)")
 
 
 
@@ -359,18 +402,19 @@ def main():
                         "b: score achieved": [graduate_employment_rate_score]}, use_container_width=True, height=500, color=["#a7d967", "#9967d9"])
     
     final_score = employee_reputation_score*0.30 + alumni_outcomes_score*0.25 + partnership_employers_faculty_score*0.25 + employer_student_connection_score*0.10 + graduate_employment_rate_score*0.10
-    score_placeholder.subheader(f"QS Employability Rankings Score: {final_score:.2f}")
+    # score_placeholder.subheader(f"QS Employability Rankings Score: {final_score:.2f}")
+    score_placeholder.markdown(f"<h3 style='text-align: center;'>QS Employability Rankings Score: {final_score:.2f}</h1>", unsafe_allow_html=True)
 
     overall_score_bar_chart_placeholder.bar_chart({"a: yet to achieve": [100-final_score],
-                      "b: achieved": [final_score]}, use_container_width=False, width=250, height=500, color=["#48ffff", "#ff7648"])
+                      "b: achieved": [final_score]}, use_container_width=False, width=350, height=450, color=["#48ffff", "#ff7648"])
 
 
     pred = np.array([[final_score]])
     rank = random_forest_reg.predict(pred)
 
-    ranking_placeholder.subheader(f"Employability Ranking Outcome: {int(rank)}")
+    ranking_placeholder.markdown(f"<h3 style='text-align: center;'>Employability Ranking Outcome: {int(rank)}</h1>", unsafe_allow_html=True)
     overall_rank_bar_chart_placeholder.bar_chart({"a: yet to achieve": [597 - int(rank)],
-                      "b: achieved": [int(rank)]}, use_container_width=False, width=250, height=500, color=["#abdd87", "#a075c0"])
+                      "b: achieved": [int(rank)]}, use_container_width=False, width=350, height=450, color=["#abdd87", "#a075c0"])
 
 
     
